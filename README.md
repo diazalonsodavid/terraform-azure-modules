@@ -19,5 +19,5 @@ Before you begin, ensure you have the following prerequisites:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/terraform-azure-infrastructure.git
+git clone https://github.com/diazalonsodavid/terraform-azure-infrastructure.git
 cd terraform-azure-infrastructure
