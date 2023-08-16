@@ -31,7 +31,7 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-resource "azurerm_windows_virtual_machine" "vm" {
+resource "azurerm_linux_virtual_machine" "vm" {
   name                = var.vm_name
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -39,17 +39,19 @@ resource "azurerm_windows_virtual_machine" "vm" {
   size = var.vm_size
 
   admin_username = var.admin_username
-  admin_password = var.admin_password
-
+  admin_ssh_key {
+    username   = var.admin_username
+    public_key = file(var.admin_ssh_public_key_path)
+  }
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
 
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2019-Datacenter"
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"
     version   = "latest"
   }
 

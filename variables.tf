@@ -18,8 +18,8 @@ variable "admin_username" {
   description = "Nombre de usuario del administrador"
 }
 
-variable "admin_password" {
-  description = "Contraseña del administrador"
+variable "admin_ssh_public_key_path" {
+  description = "Path to the SSH public key for the admin user"
 }
 
 variable "aks_name" {

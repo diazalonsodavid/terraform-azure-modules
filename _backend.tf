@@ -3,6 +3,6 @@ terraform {
       storage_account_name = "nexusintegratfstate"
       container_name       = "tfstate"
       key                  = "terraform.tfstate"
-      access_key = ""
+      access_key = var.access_key
   }
 }
