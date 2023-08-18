@@ -19,7 +19,7 @@ variable "admin_username" {
 }
 
 variable "admin_ssh_public_key_path" {
-  description = "Path to the SSH public key for the admin user"
+  description = "/root/.ssh/id_rsa.pub"
 }
 
 variable "aks_name" {
